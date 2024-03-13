@@ -1,9 +1,24 @@
 name: ci
 
 on:
-  push:
-    branches:
-      - 'main'
+  # push:
+  #   branches:
+  #     - 'main'
+
+  workflow_dispatch:
+    inputs:
+      site:
+        description: "Site"
+        default: 'cbss'
+        options:
+          - 'cbss'
+        required: true
+        type: choice
+      imageTagPrefix:
+        description: "Image Tag"
+        default: "7.3.0"
+        required: true
+        type: string
 
 jobs:
   docker:
