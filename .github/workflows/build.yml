@@ -27,4 +27,4 @@ jobs:
         with:
           file: "cms/Dockerfile"
           push: true
-          tags: taha2009/githubactiontest:latest
+          tags: taha2009/githubactiontest:${{ github.run_number }}
