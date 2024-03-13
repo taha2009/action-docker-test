@@ -43,3 +43,13 @@ jobs:
           file: "cms/Dockerfile"
           push: true
           tags: taha2009/githubactiontest:${{ github.run_number }}
+
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+            gh variable list
+            gh variable set TEST_VAR --body "Set from workflow"
+            gh variable list
+        env:
+          GITHUB_TOKEN: ${{ secrets.FULL_PAT }}
